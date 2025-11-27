@@ -52,9 +52,7 @@ curl -o /tmp/catalogue.zip https://roboshop-artifacts.s3.amazonaws.com/catalogue
 validate $? "catalogue code download"
 
 cd /app
-validate $? "change directory to /app"
-
-unzip /tmp/catalogue.zip &>> $LOG_FILE
+unzip /tmp/catalogue.zip
 validate $? "catalogue code unzip"
 
 npm install  &>> $LOG_FILE
