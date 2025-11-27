@@ -54,7 +54,7 @@ fi
 
 
 
-mkdir /app 
+mkdir -p /app 
 
 validate $? "app directory creation"
 
