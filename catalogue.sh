@@ -53,7 +53,14 @@ validate $? "catalogue code download"
 
 cd /app
 unzip /tmp/catalogue.zip
-validate $? "catalogue code unzip"
+
+if [ $? -ne 0 ]
+then
+    echo -e "$R ERROR:: catalogue code unzip failed $N" | tee -a $LOG_FILE
+else
+    echo -e "$G SUCCESS:: catalogue code unzipped successfully $N"  | tee -a $LOG_FILE
+fi
+
 
 npm install  &>> $LOG_FILE
 validate $? "catalogue npm package installation"
