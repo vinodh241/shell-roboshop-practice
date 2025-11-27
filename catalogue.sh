@@ -27,9 +27,9 @@ fi
         validate () {
             if [ $1 -eq 0 ]
             then
-                echo -e "$G SUCCESS:: $2 is installed successfully $N"  
-            else
-                echo -e "$R ERROR:: $2 installation failed $N" 
+                echo -e " $2 ... $G SUCCESS is  $N"  | tee -a $LOG_FILE
+            else 
+                echo -e " $2 ....$R failed $N" | tee -a $LOG_FILE
             fi
         }   
 
@@ -43,14 +43,13 @@ dnf install nodejs -y &>> $LOG_FILE
 validate $? "Nodejs installation"
 
 id roboshop
-        if [ $? -ne 0 ]
-        then
-            useradd --system --home /app --shell /sbin/nologin --comment "roboshop system user" roboshop
-            validate $? "roboshop user creation"
-        else
-            echo -e "$Y roboshop user is already present hence skipping user creation $N " | tee -a $LOG_FILE
-            exit 0
-        fi
+if [ $? -ne 0 ]
+then
+    useradd --system --home /app --shell /sbin/nologin --comment "roboshop system user" roboshop &>>$LOG_FILE
+    VALIDATE $? "Creating roboshop system user"
+else
+    echo -e "System user roboshop already created ... $Y SKIPPING $N"
+fi
 
 mkdir -p /app 
 
