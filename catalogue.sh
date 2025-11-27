@@ -27,9 +27,9 @@ fi
         validate () {
             if [ $1 -eq 0 ]
             then
-                echo -e "$G SUCCESS:: $2 is installed successfully $N"  | tee -a $LOG_FILE
+                echo -e "$G SUCCESS:: $2 is installed successfully $N"  
             else
-                echo -e "$R ERROR:: $2 installation failed $N" | tee -a $LOG_FILE
+                echo -e "$R ERROR:: $2 installation failed $N" 
             fi
         }   
 
@@ -60,15 +60,17 @@ curl -o /tmp/catalogue.zip https://roboshop-artifacts.s3.amazonaws.com/catalogue
 validate $? "catalogue code download"
 
 
+
+rm -rf /app/*
 cd /app
 unzip /tmp/catalogue.zip
 
-if [ $? -ne 0 ]
-then
-    echo -e "$R ERROR:: catalogue code unzip failed $N" | tee -a $LOG_FILE
-else
-    echo -e "$G SUCCESS:: catalogue code unzipped successfully $N"  | tee -a $LOG_FILE
-fi
+        if [ $? -ne 0 ]
+        then
+            echo -e "$R ERROR:: catalogue code unzip failed $N" | tee -a $LOG_FILE
+        else
+            echo -e "$G SUCCESS:: catalogue code unzipped successfully $N"  | tee -a $LOG_FILE
+        fi
 
 
 npm install  &>> $LOG_FILE
