@@ -18,12 +18,15 @@ then
 else
     echo -e "$G Success:: you are running with root access $N" | tee -a $LOG_FILE
 fi
+
+# validate functions takes input as exit status, what command they tried to install
+
         validate () {
-            if [ $? -eq 0 ]
+            if [ $1 -eq 0 ]
             then
-                echo -e "$G SUCCESS:: $1 is installed successfully $N"  | tee -a $LOG_FILE
+                echo -e "$G SUCCESS:: $2 is installed successfully $N"  | tee -a $LOG_FILE
             else
-                echo -e "$R ERROR:: $1 installation failed $N" | tee -a $LOG_FILE
+                echo -e "$R ERROR:: $2 installation failed $N" | tee -a $LOG_FILE
             fi
         }   
 
