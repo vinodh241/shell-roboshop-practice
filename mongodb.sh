@@ -6,10 +6,12 @@ G="\e[0;32m"
 N="\e[0m"   
 
 LOG_FOLDER="/var/log/shell-roboshop.logs"
-SCRIPT_NAME=$("echo $0 | cut -d'.' -f1")
+SCRIPT_NAME=$(echo $0 | cut -d "." -f1)
 LOG_FILE="$LOG_FOLDER/$SCRIPT_NAME.log"
 mkdir -p $LOG_FOLDER
 echo -e "script started exuction time : $(date)" | tee -a $LOG_FILE
+
+# check the user has root priveleges or not
 
 if [ $USERID -ne 0 ]
 then
