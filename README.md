@@ -41,6 +41,11 @@ components of backend tier
 4. RabbitMQ --> Open source messgae broker software that helps applications send messages to each other,
                 its implements the advanced message queuing protocal (AMQP) a d uses queues to store messgaes until receving application is ready to process them.   
 
+# Scripting Languages:
+----------------------
+1. Shell 
+2. Groovy
+4. YamL
 
 # Reqiured Softwares:
 ----------------------
