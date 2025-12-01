@@ -63,7 +63,7 @@ validate $? "Frontend code download"
 cd /usr/share/nginx/html | tee -a $LOG_FILE
 validate $? "Nginx html directory change"
 
-unzip /tmp/frontend.zip  &>>$LOG_FILE
+unzip /tmp/frontend.zip  &&>>$LOG_FILE
 validate $? "Frontend code unzip"
 
 cp $SCRIPT_DIR/nginx.conf /etc/nginx/nginx.conf  | tee -a $LOG_FILE
