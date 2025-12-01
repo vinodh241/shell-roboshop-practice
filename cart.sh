@@ -6,7 +6,7 @@ G="\e[32m"
 N="\e[om"
 
 LOG_FOLDER="/var/log/shell-roboshop.logs"
-SCRIPT_NAME=$( echo$0 | cut -d '' . -f1)
+SCRIPT_NAME=$(echo $0 | cut -d "." -f1)
 LOG_FILE="$LOG_FOLDER/$SCRIPT_NAME.log"
 mkdir -p $LOG_FOLDER
 SCRIPT_DIR=$PWD
@@ -14,7 +14,7 @@ echo -e "script started exuction time : $( date)" | tee -a $LOG_FILE
 
 # check the user has root priveleges or not
 
- if [ $USEDID -ne 0 ]
+ if [ $USERID -ne 0 ]
 then
     echo -e "$R ERROR:: pleae run this script with root access $N" | tee -a $LOG_FILE
     exit 1 # we can give other than zero upto 127
