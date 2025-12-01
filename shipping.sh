@@ -1,8 +1,8 @@
 #!/bin/bash
 
 USERID=$(id -u)
-R="\e[0;31m"
-G="\e[0;32m"
+R="\e[31m"
+G="\e[32m"
 N="\e[0m"   
 
 LOG_FOLDER="/var/log/shell-roboshop.logs"
