@@ -44,7 +44,6 @@ components of backend tier
 
 # Reqiured Softwares:
 ----------------------
-
 1. Nodjs
 2. Python
 3. Java
@@ -52,11 +51,12 @@ components of backend tier
 
 # IaC:
 -------
+Infrastructure as Code
+
 1.Terraform 
 
 # Container & Orchestration
 ------------------------
-
  1. Docekr 
  2. Docker compose
  3. Docker networking
@@ -66,10 +66,8 @@ components of backend tier
 
 # Cloud Services
 -----------------
-
 AWS 
 ----
-
 1. EC2
 2. VPC
 3. S3
@@ -82,7 +80,6 @@ AWS
 
 # Monitoring tools:
 -------------------
-
 1. promotheus
 
 
