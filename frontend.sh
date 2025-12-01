@@ -33,9 +33,6 @@ fi
             fi
         }  
 
-dnf module list nginx -y  &&>>$LOG_FILE
-validate $? "Nginx module list"
-
 
 dnf module disable nginx -y  &>>$LOG_FILE
 validate $? "Nginx module disable"
