@@ -55,6 +55,16 @@ Infrastructure as Code
 
 1.Terraform 
 
+# Configuration Management:
+------------------------
+1. Ansible
+
+CI\CD-Tools:
+-------------
+1. Jenkins
+2. ArgoCD
+
+
 # Container & Orchestration
 ------------------------
  1. Docekr 
@@ -76,7 +86,6 @@ AWS
 6. EKS
 7. Rote53
 8. IAM
-
 
 # Monitoring tools:
 -------------------
