@@ -23,14 +23,16 @@ else
 fi
 
 # validate functions takes input as exit status, what command they tried to install
-    if [ $1 -eq 0 ]
-    then
-        echo -e "$2 is ... $G SUCCESS $N" | tee -a $LOG_FILE
-    else
-        echo -e "$2 is ... $R FAILURE $N" | tee -a $LOG_FILE
-        exit 1
-    fi
-}
+        validate () {
+            if [ $1 -eq 0 ]
+            then
+                echo -e "$G SUCCESS:: $2 is installed successfully $N"  | tee -a $LOG_FILE
+            else
+                echo -e "$R ERROR:: $2 installation failed $N" | tee -a $LOG_FILE
+            fi
+        }   
+
+
 
 if [ $? -ne 0 ]
 then
