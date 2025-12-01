@@ -33,10 +33,10 @@ components of backend tier
 1. Mongodb --> Using mongodb we can handle large number of volumes of unstructured or semi-structured data.
                 insated of using tables like in traditional SQL databases, Momgodb stored the data in flixble , JSIN like doucments
 
-2. Redis --> (In-memory data store ): Redis stores data directly in RAM, resulting in very low-latency reads and writes
+2. Redis -->  (In-memory data store ): Redis stores data directly in RAM, resulting in very low-latency reads and writes
 
-3. Mysql --> MySQL is RDBMS (open source relational datanase management system. it purpose to store 
-             and manage , reterive   data effentily )
+3. Mysql -->  MySQL is ( RDBMS)open source relational datanase management system. it purpose to store 
+              and manage,reterive data effentily
 
 4. RabbitMQ --> Open source messgae broker software that helps applications send messages to each other,
                 its implements the advanced message queuing protocal (AMQP) a d uses queues to store messgaes until receving application is ready to process them.   
@@ -45,24 +45,24 @@ components of backend tier
 # Reqiured Softwares:
 ----------------------
 
-Nodjs
-Python
-Java
-Maven
+1. Nodjs
+2. Python
+3. Java
+4. Maven
 
 # IaC:
 -------
-Terraform 
+1.Terraform 
 
 # Container & Orchestration
 ------------------------
 
-1.Docekr 
-2.Docker compose
-3.Docker networking
-4.Docker volumes
-5.Kubernetes 
-6.Helm charts
+ 1. Docekr 
+ 2. Docker compose
+ 3. Docker networking
+ 4. Docker volumes
+ 5. Kubernetes 
+ 6. Helm charts
 
 # Cloud Services
 -----------------
