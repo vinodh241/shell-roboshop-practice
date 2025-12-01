@@ -33,7 +33,7 @@ fi
             fi
         }  
 
-dnf module list nginx -y   &&>>LOG_FILE
+dnf module list nginx -y   &&>> LOG_FILE
 
 validate $? "Nginx module list"
 

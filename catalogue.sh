@@ -40,10 +40,9 @@ fi
  dnf module enable nodejs:20 -y | tee -a $LOG_FILE 
  validate $? "Nodejs module enable"
 
+
  dnf install nodejs -y &>> $LOG_FILE
  validate $? "Nodejs installation"
-
-
 
 id roboshop
 if [ $? -ne 0 ]
