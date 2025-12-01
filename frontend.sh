@@ -33,23 +33,23 @@ fi
             fi
         }  
 
-dnf module list nginx -y  &&>>$LOG_FILE
+dnf module list nginx -y  &>>$LOG_FILE
 validate $? "Nginx module list"
 
 
-dnf module disable nginx -y  &&>>$LOG_FILE
+dnf module disable nginx -y  &>>$LOG_FILE
 validate $? "Nginx module disable"
 
-dnf module enable nginx:1.24 -y&&>>$LOG_FILE
+dnf module enable nginx:1.24 -y &>>$LOG_FILE
 validate $? "Nginx module enable"
 
-dnf install nginx -y &&>>$LOG_FILE 
+dnf install nginx -y &>>$LOG_FILE 
 validate $? "Nginx installed successfully"
 
-systemctl enable nginx  &&>>$LOG_FILE
+systemctl enable nginx  &>>$LOG_FILE
 validate $? "Nginx enable service"
 
-systemctl start nginx  &&>>$LOG_FILE
+systemctl start nginx  &>>$LOG_FILE
 validate $? "Nginx start service"
 
 
@@ -63,7 +63,7 @@ validate $? "Frontend code download"
 cd /usr/share/nginx/html | tee -a $LOG_FILE
 validate $? "Nginx html directory change"
 
-unzip /tmp/frontend.zip  &&>> $LOG_FILE
+unzip /tmp/frontend.zip  &>>$LOG_FILE
 validate $? "Frontend code unzip"
 
 cp $SCRIPT_DIR/nginx.conf /etc/nginx/nginx.conf  | tee -a $LOG_FILE
