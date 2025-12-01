@@ -33,12 +33,11 @@ fi
             fi
         }  
 
-dnf module list nginx -y   &&>> LOG_FILE
-
+dnf module list nginx -y  &&>> LOG_FILE
 validate $? "Nginx module list"
 
 
-dnf module disable nginx -y    &&>> LOG_FILE
+dnf module disable nginx -y  &&>> LOG_FILE
 validate $? "Nginx module disable"
 
 dnf module enable nginx:1.24 -y &&>> LOG_FILE 
@@ -47,10 +46,10 @@ validate $? "Nginx module enable"
 dnf install nginx -y &&>> LOG_FILE 
 validate $? "Nginx installed successfully"
 
-systemctl enable nginx | tee -a $LOG_FILE
+systemctl enable nginx  &&>> LOG_FILE 
 validate $? "Nginx enable service"
 
-systemctl start nginx  | tee -a $LOG_FILE
+systemctl start nginx  &&>> LOG_FILE 
 validate $? "Nginx start service"
 
 
