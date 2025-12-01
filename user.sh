@@ -6,7 +6,7 @@ G="\e[32m"
 N="\e[0m"
 
 LOG_FOLDER="/var/log/shell-roboshop.logs"
-SCRIPT_NAME=$( echo $0 | cut -d '' . -f1)
+SCRIPT_NAME=$(echo $0 | cut -d '' . -f1)
 LOG_FILE="$LOG_FOLDER/$SCRIPT_NAME.log"
 mkdir -p $LOG_FOLDER
 SCRIPT_DIR=$PWD
@@ -28,9 +28,9 @@ fi
         validate () {
             if [ $1 -eq 0 ]
             then
-                echo -e " $2 is .... $G SUCCESS $N" | tee -a $LOG_FILE
+                echo -e "$2 is .... $G SUCCESS $N" | tee -a $LOG_FILE
             else 
-                echo -e " $2 is .... $R FAILED $N" | tee -a $LOG_FILE
+                echo -e "$2 is .... $R FAILED $N" | tee -a $LOG_FILE
             fi
         }  
 
@@ -47,7 +47,7 @@ id roboshop
 if [ $? -ne 0 ]
 then
     useradd --system --home /app --shell /sbin/nologin --comment "roboshop system user" roboshop &>>$LOG_FILE
-    VALIDATE $? "Creating roboshop system user"
+    validate $? "Creating roboshop system user"
 else
     echo -e "System user roboshop already created ... $Y SKIPPING $N"
 fi  
