@@ -44,6 +44,45 @@ components of backend tier
                 its implements the advanced message queuing protocal (AMQP) a d uses queues to store messgaes until receving application is ready to process them.   
 
 
+# Reqiured Softwares:
+----------------------
+
+Nodjs
+Python
+Java
+Maven
+
+# Micro services:
+--------------------
+
+Docekr 
+Docker compose
+Docker networking
+Docker volumes
+
+# container orchistartion
+
+Kubernetes 
+
+# Cloud Services
+-----------------
+
+AWS 
+----
+
+1. EC2
+2. VPC
+3. S3
+4. Load Balancing
+5. Auto Scaling
+6. EKS
+7. Rote53
+
+
+
+
+
+
 
 
   
