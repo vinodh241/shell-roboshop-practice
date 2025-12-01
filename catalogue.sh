@@ -34,29 +34,15 @@ fi
 
 
 
-if [ $? -ne 0 ]
-then
-    dnf module disable nodejs -y &>>$LOG_FILE
-    validate $? "Disabling default nodejs"
-else
-    echo -e "Nodejs module already disabled ... $Y SKIPPING $N"
-fi
+ dnf module disable nodejs -y &>>$LOG_FILE
+ validate $? "Disabling default nodejs"
 
-if [ $? -ne 0 ]
-then
-        dnf module enable nodejs:20 -y | tee -a $LOG_FILE 
-        validate $? "Nodejs module enable"
-else
-    echo -e "Nodejs 20 module already enabled ... $Y SKIPPING $N"
-fi
+ dnf module enable nodejs:20 -y | tee -a $LOG_FILE 
+ validate $? "Nodejs module enable"
 
-if [ $? -ne 0 ]
-then
-        dnf install nodejs -y &>> $LOG_FILE
-        validate $? "Nodejs installation"
-else
-    echo -e "Nodejs already installed ... $Y SKIPPING $N"
-fi
+ dnf install nodejs -y &>> $LOG_FILE
+ validate $? "Nodejs installation"
+
 
 
 id roboshop
