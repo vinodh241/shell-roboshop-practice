@@ -10,7 +10,6 @@ Its basically 3 tier architecture
 1. Nginx --> using nginx server as web server 
 
 
-
 # BackEnd:(Tier)
 ----------
 
@@ -52,17 +51,19 @@ Python
 Java
 Maven
 
-# Micro services:
---------------------
+# IaC:
+-------
+Terraform 
 
-Docekr 
-Docker compose
-Docker networking
-Docker volumes
+# Container & Orchestration
+------------------------
 
-# container orchistartion
-
-Kubernetes 
+1.Docekr 
+2.Docker compose
+3.Docker networking
+4.Docker volumes
+5.Kubernetes 
+6.Helm charts
 
 # Cloud Services
 -----------------
@@ -77,6 +78,16 @@ AWS
 5. Auto Scaling
 6. EKS
 7. Rote53
+8. IAM
+
+
+# monitoring tools:
+-------------------
+
+1. promotheus
+
+
+
 
 
 
