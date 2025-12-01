@@ -80,7 +80,7 @@ AWS
 8. IAM
 
 
-# monitoring tools:
+# Monitoring tools:
 -------------------
 
 1. promotheus
