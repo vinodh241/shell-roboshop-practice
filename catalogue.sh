@@ -41,7 +41,7 @@ fi
  validate $? "Nodejs module enable"
 
 
- dnf install nodejs -y &>> $LOG_FILE
+ dnf install nodejs -y &>>$LOG_FILE
  validate $? "Nodejs installation"
 
 id roboshop
@@ -67,7 +67,7 @@ cd /app
 unzip /tmp/catalogue.zip
 validate $? "catalogue code unzip"
 
-npm install  &>> $LOG_FILE
+npm install  &>>$LOG_FILE
 validate $? "catalogue npm package installation"
 
 
@@ -84,10 +84,10 @@ validate $? "catalogue enable service"
 systemctl start catalogue
 validate $? "catalogue start service"
 
-cp $SCRIPT_DIR/mongo.repo /etc/yum.repos.d/mongodb.repo &>> $LOG_FILE
+cp $SCRIPT_DIR/mongo.repo /etc/yum.repos.d/mongodb.repo &>>$LOG_FILE
 validate $? "Mongodb repo file copy"
 
-dnf install mongodb-mongosh -y   &>> $LOG_FILE
+dnf install mongodb-mongosh -y   &>>$LOG_FILE
 validate $? "Mongodb mongosh installation"
 
 mongosh --host mongodb.vinodh.site </app/db/master-data.js

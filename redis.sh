@@ -39,7 +39,7 @@ validate $? "Redis module disable"
 dnf module enable redis:7 -y  | tee -a $LOG_FILE
 validate $? "Redis module enable"
 
-dnf install redis -y  &>> $LOG_FILE
+dnf install redis -y  &>>$LOG_FILE
 validate $? "Redis installation"
 
 

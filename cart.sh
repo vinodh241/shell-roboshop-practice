@@ -34,13 +34,13 @@ fi
             fi
         }  
 
-dnf module disable nodejs -y &>> $LOG_FILE
+dnf module disable nodejs -y &>>$LOG_FILE
 validate $? "Nodejs module disable" 
 
-dnf module enable nodejs:20 -y  &>> $LOG_FILE
+dnf module enable nodejs:20 -y  &>>$LOG_FILE
 validate $? "Nodejs module enable"
 
-dnf install nodejs -y &>> $LOG_FILE
+dnf install nodejs -y &>>$LOG_FILE
 validate $? "Nodejs installation"
 
 id roboshop
@@ -59,22 +59,22 @@ validate $? "cart code download"
 
 rm -rf /app/*
 cd /app
-unzip /tmp/cart.zip &>> $LOG_FILE
+unzip /tmp/cart.zip &>>$LOG_FILE
 validate $? "cart code unzip"  
 
 cd /app
-npm install &>> $LOG_FILE
+npm install &>>$LOG_FILE
 validate $? "cart npm dependencies installation"
 
-cp $SCRIPT_DIR/systemd/cart.service /etc/systemd/system/cart.service &>> $LOG_FILE
+cp $SCRIPT_DIR/systemd/cart.service /etc/systemd/system/cart.service &>>$LOG_FILE
 validate $? "cart systemd service file copy"        
 
-systemctl daemon-reload &>> $LOG_FILE
+systemctl daemon-reload &>>$LOG_FILE
 validate $? "systemd daemon reload"         
 
-systemctl enable cart &>> $LOG_FILE
+systemctl enable cart &>>$LOG_FILE
 validate $? "cart enable service"
-systemctl start cart &>> $LOG_FILE
+systemctl start cart &>>$LOG_FILE
 validate $? "cart start service"
 
 echo -e "script ended exuction time : $( date)" | tee -a $LOG_FILE

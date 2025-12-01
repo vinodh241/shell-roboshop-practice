@@ -33,10 +33,10 @@ fi
             fi
         }  
 
-cp rabbitmq.repo /etc/yum.repos.d/rabbitmq.repo &>> $LOG_FILE
+cp rabbitmq.repo /etc/yum.repos.d/rabbitmq.repo &>>$LOG_FILE
 validate $? "Rabbitmq repo file copy"
 
-dnf install rabbitmq-server -y &>> $LOG_FILE
+dnf install rabbitmq-server -y &>>$LOG_FILE
 validate $? "Rabbitmq installation"
 
 systemctl enable rabbitmq-server    | tee -a $LOG_FILE

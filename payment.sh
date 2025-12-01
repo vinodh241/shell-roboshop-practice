@@ -34,10 +34,10 @@ fi
         }  
 
 
-dnf install python3 gcc python3-devel -y  &>> $LOG_FILE
+dnf install python3 gcc python3-devel -y &>>$LOG_FILE
 validate $? "Python3 installation"
 
-id  roboshop &>> $LOG_FILE
+id  roboshop&>>$LOG_FILE
 if [ $? -ne 0 ]
 then
         useradd --system --home /app --shell /sbin/nologin --comment "roboshop system user" roboshop
@@ -57,11 +57,11 @@ unzip /tmp/payment.zip  | tee -a $LOG_FILE
 validate $? "payment code download and extract"
 
 cd /app
-pip3 install -r requirements.txt  &>> $LOG_FILE
+pip3 install -r requirements.txt &>>$LOG_FILE
 
 validate $? "payment dependencies installation"
 
-cp $SCRIPT_DIR/payment.service /etc/systemd/system/payment.service  &>> $LOG_FILE
+cp $SCRIPT_DIR/payment.service /etc/systemd/system/payment.service &>>$LOG_FILE
 validate $? "payment systemd service file copy"     
 
 systemctl daemon-reload | tee -a $LOG_FILE

@@ -33,10 +33,10 @@ fi
             fi
         }  
 
-      dnf install maven -y  &>> $LOG_FILE
+      dnf install maven -y  &>>$LOG_FILE
         validate $? "Maven installed sccessfully"
 
-id roboshop &>> $LOG_FILE
+id roboshop &>>$LOG_FILE
 if [ $? -ne 0 ]
 then
     useradd --system --home /app --shell /sbin/nologin --comment "roboshop system user" roboshop 
@@ -54,7 +54,7 @@ validate $? "shipping code download and extract"
 
    
 cd /app
-mvn clean package &>> $LOG_FILE
+mvn clean package &>>$LOG_FILE
 mv target/shipping-1.0.jar shipping.jar  &&>> LOG_FILE
 
 
@@ -68,7 +68,7 @@ systemctl start shipping | tee -a $LOG_FILE
 validate $? "shipping start service"
 
 
-dnf install mysql -y &>> $LOG_FILE
+dnf install mysql -y &>>$LOG_FILE
 validate $? "Mysql client installation"
 
 

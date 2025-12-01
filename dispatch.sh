@@ -26,10 +26,10 @@ fi
                 echo -e " $2 is .... $R FAILED $N" | tee -a $LOG_FILE
             fi
         }  
-dnf install golang -y &>> $LOG_FILE
+dnf install golang -y &>>$LOG_FILE
 validate $? "Golang installation"
 
-id roboshop &>> $LOG_FILE
+id roboshop &>>$LOG_FILE
 if [ $? -ne 0 ]
 then    
     useradd --system --home /app --shell /sbin/nologin --comment "roboshop system user" roboshop    &>>$LOG_FILE
@@ -47,14 +47,14 @@ unzip /tmp/dispatch.zip  | tee -a $LOG_FILE
 validate $? "dispatch code download and extract"
 
 cd /app
-go mod init dispatch &>> $LOG_FILE
+go mod init dispatch &>>$LOG_FILE
 validate $? "dispatch module init"  
-go get &>> $LOG_FILE
+go get &>>$LOG_FILE
 validate $? "dispatch module get"  
-go build &>> $LOG_FILE
+go build &>>$LOG_FILE
 validate $? "dispatch build"    
 
-cp $SCRIPT_DIR/dispatch.service /etc/systemd/system/dispatch.service &>> $LOG_FILE
+cp $SCRIPT_DIR/dispatch.service /etc/systemd/system/dispatch.service &>>$LOG_FILE
 validate $? "dispatch systemd service file copy"  
 
 systemctl daemon-reload  | tee -a $LOG_FILE 

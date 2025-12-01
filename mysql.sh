@@ -33,7 +33,7 @@ fi
             fi
         }  
 
- dnf install mysql-server -y  &>> $LOG_FILE
+ dnf install mysql-server -y  &>>$LOG_FILE
  validate $? "Mysql installation"   
 
 
@@ -42,7 +42,7 @@ validate $? "Mysql enable service"
 systemctl start mysqld  
 validate $? "Mysql start service"
 
-mysql_secure_installation --set-root-pass RoboShop@1 &>> $LOG_FILE
+mysql_secure_installation --set-root-pass RoboShop@1 &>>$LOG_FILE
 validate $? "Setting mysql root password"
 
 

@@ -34,13 +34,13 @@ fi
             fi
         }  
 
-dnf module disable nodejs -y &>> $LOG_FILE
+dnf module disable nodejs -y &>>$LOG_FILE
 validate $? "Nodejs module disable" 
 
-dnf module enable nodejs:20 -y &>> $LOG_FILE
+dnf module enable nodejs:20 -y &>>$LOG_FILE
 validate $? "Nodejs module enable"
 
-dnf install nodejs -y &>> $LOG_FILE
+dnf install nodejs -y &>>$LOG_FILE
 validate $? "Nodejs installation"
 
 id roboshop
@@ -58,15 +58,15 @@ curl -L -o /tmp/user.zip https://roboshop-artifacts.s3.amazonaws.com/user-v3.zip
 
 rm -rf /app/*
 cd /app 
-unzip /tmp/user.zip &>> $LOG_FILE
+unzip /tmp/user.zip &>>$LOG_FILE
 validate $? "user code download"     
 
 
 cd /app
-npm install &>> $LOG_FILE
+npm install &>>$LOG_FILE
 validate $? "user dependencies install"
 
-cp $SCRIPT_DIR/user.service /etc/systemd/system/user.service &>> $LOG_FILE
+cp $SCRIPT_DIR/user.service /etc/systemd/system/user.service &>>$LOG_FILE
 validate $? "user service file copy"
 
 systemctl daemon-reload | tee -a $LOG_FILE      
