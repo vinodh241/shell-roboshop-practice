@@ -34,10 +34,10 @@ fi
             fi
         }  
 
-dnf module disable nodejs -y | tee -a $LOG_FILE
+dnf module disable nodejs -y &>> $LOG_FILE
 validate $? "Nodejs module disable" 
 
-dnf module enable nodejs:20 -y | tee -a $LOG_FILE
+dnf module enable nodejs:20 -y &>> $LOG_FILE
 validate $? "Nodejs module enable"
 
 dnf install nodejs -y &>> $LOG_FILE
