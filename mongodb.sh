@@ -51,3 +51,6 @@ validate $? "Mongodb bind address change"
 
 systemctl restart mongod | tee -a $LOG_FILE
 validate $? "Mongodb restart service"
+
+echo -e "script ended exuction time : $(date)" | tee -a $LOG_FILE
+echo -e "$G INFO :: Mongodb setup completed successfully $N" | tee -a $LOG_FILE

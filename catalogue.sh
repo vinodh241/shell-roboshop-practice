@@ -27,9 +27,9 @@ fi
         validate () {
             if [ $1 -eq 0 ]
             then
-                echo -e " $2 ... $G SUCCESS is  $N"  | tee -a $LOG_FILE
+                echo -e " $2 is .... $G SUCCESS $N" | tee -a $LOG_FILE
             else 
-                echo -e " $2 ....$R failed $N" | tee -a $LOG_FILE
+                echo -e " $2 is .... $R FAILED $N" | tee -a $LOG_FILE
             fi
         }   
 
@@ -92,4 +92,5 @@ mongosh --host mongodb.vinodh.site </app/db/master-data.js
 validate $? "catalogue mongodb schema load"
 
 echo -e "script ended exuction time : $(date)" | tee -a $LOG_FILE
+echo -e "$G INFO :: catalogue setup completed successfully $N" | tee -a $LOG_FILE
 
