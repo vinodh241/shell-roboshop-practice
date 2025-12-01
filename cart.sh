@@ -66,7 +66,7 @@ cd /app
 npm install &>>$LOG_FILE
 validate $? "cart npm dependencies installation"
 
-cp $SCRIPT_DIR/systemd/cart.service /etc/systemd/system/cart.service &>>$LOG_FILE
+cp $SCRIPT_DIR/cart.service /etc/systemd/system/cart.service &>>$LOG_FILE
 validate $? "cart systemd service file copy"        
 
 systemctl daemon-reload &>>$LOG_FILE
