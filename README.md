@@ -15,12 +15,12 @@ Its basically 3 tier architecture
 
 components of backend tier 
 
-1.catalogue
-2.user
-3.cart
-4.shipping
-5.payment
-6.dispatch
+1. catalogue
+2. user
+3. cart
+4. shipping
+5. payment
+6. dispatch
 
 
 
