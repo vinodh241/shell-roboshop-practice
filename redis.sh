@@ -43,8 +43,8 @@ dnf install redis -y  &>>$LOG_FILE
 validate $? "Redis installation"
 
 
-sed -i 's/127.0.0.1/0.0.0.0/g' /etc/redis/redis.conf | tee -a $LOG_FILE
-validate $? "Redis bind address change"
+sed -i -e 's/127.0.0.1/0.0.0.0/g' -e '/protected-mode/ c protected-mode no' /etc/redis/redis.conf
+VALIDATE $? "Edited redis.conf to accept remote connections"
 
 systemctl enable redis  | tee -a $LOG_FILE
 validate $? "Redis enable service"  
