@@ -6,7 +6,7 @@ G="\e[32m"
 N="\e[0m"
 
 LOG_FOLDER="/var/log/shell-roboshop.logs"
-SCRIPT_NAME=$(echo $0 | cut -d "" . -f1)
+SCRIPT_NAME=$(echo $0 | cut -d "." -f1)
 LOG_FILE="$LOG_FOLDER/$SCRIPT_NAME.log"
 mkdir -p $LOG_FOLDER
 SCRIPT_DIR=$PWD
@@ -64,7 +64,7 @@ validate $? "user code download"
 
 cd /app
 npm install &>>$LOG_FILE
-validate $? "user dependencies install"
+validate $? "npm dependencies installed"
 
 cp $SCRIPT_DIR/user.service /etc/systemd/system/user.service &>>$LOG_FILE
 validate $? "user service file copy"
@@ -74,6 +74,7 @@ validate $? "systemctl daemon reload"
 
 systemctl enable user | tee -a $LOG_FILE
 validate $? "user enable service"
+
 systemctl start user | tee -a $LOG_FILE
 validate $? "user start service"
 
