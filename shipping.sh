@@ -58,7 +58,7 @@ mvn clean package &>>$LOG_FILE
 mv target/shipping-1.0.jar shipping.jar  &&>> LOG_FILE
 
 
-cp SCRIPT_DIR/shipping.service /etc/systemd/system/shipping.service  &&>> LOG_FILE
+cp $SCRIPT_DIR/shipping.service /etc/systemd/system/shipping.service  &&>> LOG_FILE
 validate $? "shipping systemd file copy"
 
 systemctl daemon-reload
