@@ -61,8 +61,8 @@ cd /usr/share/nginx/html
 unzip /tmp/frontend.zip  
 validate $? "Frontend code unzip"
 
-rm -rf /etc/nginx/nginx.conf   | tee -a $LOG_FILE
-validate $? "default Nginx configuration removed"
+rm -rf /etc/nginx/nginx.conf &>>$LOG_FILE
+validate $? "Remove default nginx conf"
 
 cp $SCRIPT_DIR/nginx.conf /etc/nginx/nginx.conf 
 validate $? "Nginx configuration copy"
