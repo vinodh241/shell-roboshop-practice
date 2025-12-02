@@ -57,12 +57,14 @@ validate $? "Nginx html content cleanup"
 curl -o /tmp/frontend.zip https://roboshop-artifacts.s3.amazonaws.com/frontend-v3.zip
 validate $? "Frontend code download"
 
-cd /usr/share/nginx/html | tee -a $LOG_FILE
-unzip /tmp/frontend.zip  &&>>$LOG_FILE
+cd /usr/share/nginx/html 
+unzip /tmp/frontend.zip  
 validate $? "Frontend code unzip"
 
-rm -f /etc/nginx/nginx.conf  | tee -a $LOG_FILE
-cp $SCRIPT_DIR/nginx.conf /etc/nginx/nginx.conf  | tee -a $LOG_FILE
+rm -rf /etc/nginx/nginx.conf   | tee -a $LOG_FILE
+validate $? "default Nginx configuration removed"
+
+cp $SCRIPT_DIR/nginx.conf /etc/nginx/nginx.conf 
 validate $? "Nginx configuration copy"
 
 systemctl restart nginx | tee -a $LOG_FILE
